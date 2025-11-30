@@ -3,8 +3,7 @@
 An intelligent todo list application powered by LangChain and Ollama, with LINE chatbot integration for managing tasks via chat interface.
 
 ## Demo
-
-https://github.com/Panarin-U/langchain-todolist-agent-chatbot/video-preview/todolist-short.mp4
+[![Watch the video](./video-preview/Screenshot%202568-11-30%20at%2013.12.14.png)](./video-preview/todolist-short.mp4)
 
 ## Features
 
