@@ -4,7 +4,7 @@ An intelligent todo list application powered by LangChain and Ollama, with LINE 
 
 ## Demo
 
-https://github.com/Panarin-U/langchain-todolist-agent-chatbot/assets/todolist-short.mp4
+https://github.com/Panarin-U/langchain-todolist-agent-chatbot/video-preview/todolist-short.mp4
 
 ## Features
 
