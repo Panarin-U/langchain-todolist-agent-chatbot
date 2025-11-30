@@ -2,24 +2,9 @@
 
 An intelligent todo list application powered by LangChain and Ollama, with LINE chatbot integration for managing tasks via chat interface.
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Video Preview</title>
-</head>
-<body class="p-4">
-  <h1>Todo List Agent Video Preview</h1>
-  <div style="display:flex; justify-content:center; align-items:center; width:100%; margin-top:20px;">
-    <video width="640" autoplay loop muted playsinline>
-      <source src="video-preview/todolist-short.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-  </div>
-</body>
-</html>
+## Demo
 
+https://github.com/Panarin-U/langchain-todolist-agent-chatbot/assets/todolist-short.mp4
 
 ## Features
 
