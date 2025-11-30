@@ -1,0 +1,83 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: todo-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: todo_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - todo-network
+
+  app:
+    build: .
+    container_name: todo-app
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: todo_db
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      PORT: 3000
+      CHANNEL_ACCESS_TOKEN: ${CHANNEL_ACCESS_TOKEN}
+      CHANNEL_SECRET: ${CHANNEL_SECRET}
+      OLLAMA_BASE_URL: http://host.docker.internal:11434
+      API_BASE_URL: http://api:3001/api
+    ports:
+      - "3000:3000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - todo-network
+
+  api:
+    build:
+      context: .
+      dockerfile: dockerfiles/Dockerfile.api
+    container_name: todo-api
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: todo_db
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      API_PORT: 3001
+    ports:
+      - "3001:3001"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - todo-network
+
+  ui:
+    build:
+      context: .
+      dockerfile: dockerfiles/Dockerfile.ui
+    container_name: todo-ui
+    ports:
+      - "3002:80"
+    depends_on:
+      - api
+    networks:
+      - todo-network
+
+volumes:
+  postgres_data:
+
+networks:
+  todo-network:
+    driver: bridge

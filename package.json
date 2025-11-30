@@ -1,0 +1,47 @@
+{
+  "name": "todolist-agent",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "build:ui": "webpack --config webpack.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@google-cloud/vertexai": "^1.10.0",
+    "@langchain/anthropic": "^1.0.0",
+    "@langchain/classic": "^1.0.1",
+    "@langchain/community": "^1.0.4",
+    "@langchain/core": "^1.0.2",
+    "@langchain/google-vertexai": "^1.0.0",
+    "@langchain/langgraph": "^1.0.1",
+    "@langchain/langgraph-checkpoint-postgres": "^1.0.0",
+    "@langchain/ollama": "^1.0.0",
+    "@langchain/openai": "^1.0.0",
+    "@line/bot-sdk": "^10.4.0",
+    "axios": "^1.13.2",
+    "cli-table3": "^0.6.5",
+    "dotenv": "^16.4.5",
+    "express": "^5.1.0",
+    "kafkajs": "^2.2.4",
+    "langchain": "^1.0.2",
+    "pg": "^8.16.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "zod-to-json-schema": "^3.24.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.5",
+    "@babel/preset-env": "^7.28.5",
+    "@babel/preset-react": "^7.28.5",
+    "babel-loader": "^10.0.0",
+    "html-webpack-plugin": "^5.6.5",
+    "webpack": "^5.103.0",
+    "webpack-cli": "^6.0.1"
+  }
+}
